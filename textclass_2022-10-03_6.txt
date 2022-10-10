@@ -1,0 +1,1 @@
+O:13:"TelegraphText":5:{s:5:"title";s:4:"text";s:4:"text";s:2:"hi";s:6:"author";s:6:"viktor";s:9:"published";s:19:"2022-10-03 22:11:55";s:4:"slug";s:26:"textclass_2022-10-03_6.txt";}
