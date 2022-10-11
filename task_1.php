@@ -93,11 +93,11 @@ abstract class User implements EventListenerInterface
 
 class FileStorage extends Storage
 {
-    function logMessage($error_text)
+    public function logMessage($error_text)
     {
         file_put_contents('error.log', $error_text . PHP_EOL, FILE_APPEND);
     }
-    function lastMessages($number_of_messages) 
+    public function lastMessages($number_of_messages) 
     {
         // получаем содержимое файл с логами.
         $logs = file_get_contents('error.log');
@@ -109,15 +109,15 @@ class FileStorage extends Storage
         // вернуть массив сообщений
         return $array;
     }
-    function attachEvent($method_name)
+    public function attachEvent($method_name)
     {
         
     }
-    function detouchEvent($method_name)
+    public function detouchEvent($method_name)
     {
 
     }
-    function create($obj)
+    public function create($obj)
     {
         $now = new DateTime();
         $date = $now->format('Y-m-d');
@@ -135,7 +135,7 @@ class FileStorage extends Storage
         file_put_contents ($fileName, $serialize);
         return $fileName;
     }
-    function read($id, $slug) 
+    public function read($id, $slug) 
     {   
         if (file_exists($slug)) { 
             $serialize = file_get_contents($slug); 
@@ -144,14 +144,14 @@ class FileStorage extends Storage
         } 
         
     }
-    function update($id, $slug, $obj)
+    public function update($id, $slug, $obj)
     {
         if (file_exists($slug)) {
             $serialize = serialize ($obj);
             file_put_contents ($slug, $serialize);
         }
     }
-    function delete($id, $slug)
+    public function delete($id, $slug)
     {
         if (file_exists($slug)) {
             unlink($slug);
